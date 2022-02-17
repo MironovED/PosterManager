@@ -29,10 +29,11 @@ public class PosterManager {
         this.limit = limit;
     }
 
+
     public Film[] getAll() {
         int resultLength;
-        if (limit == 10) {
-            resultLength = 10;
+        if (limit > items.length) {
+            resultLength = items.length;
         } else {
             resultLength = limit;
         }
@@ -44,6 +45,7 @@ public class PosterManager {
         }
         return result;
     }
+
 
 
 }

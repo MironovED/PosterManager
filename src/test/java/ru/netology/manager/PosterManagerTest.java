@@ -216,7 +216,6 @@ class PosterManagerTest {
     }
 
     @Test
-    @Disabled
     void getFilmsWhenLimit10And9Films() {
         Film first = new Film(1, "Бладшот");
         Film second = new Film(2, "Вперед");
@@ -242,6 +241,23 @@ class PosterManagerTest {
 
 
         Film[] expected = { ninth, eighth, seventh, sixth, fifth, fourth, third, second, first };
+        Film[] actual = manager.getAll();
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void getFilmsWhenLimit1And1Films() {
+        Film first = new Film(1, "Бладшот");
+
+
+
+        PosterManager manager = new PosterManager(1);
+        manager.save(first);
+
+
+
+        Film[] expected = { first };
         Film[] actual = manager.getAll();
 
         assertArrayEquals(expected, actual);
